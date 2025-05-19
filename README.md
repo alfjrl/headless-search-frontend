@@ -1,8 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project is a research prototype using Next.js to implement a headless search API for the Digital Collections at UMD Libraries.
+
+It leverages [Tailwind CSS](https://tailwindcss.com/) for styling and [shadcn/ui](https://ui.shadcn.com/) for UI components.
 
 ## Getting Started
 
-First, run the development server:
+Once you have cloned the repository to your local machine, install the dependencies by running:
+
+```bash
+npm install
+```
+
+To start the development server, run one of the following commands:
 
 ```bash
 npm run dev
@@ -14,23 +22,23 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a modern font family from Vercel.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+### API
 
-To learn more about Next.js, take a look at the following resources:
+- **API Proxy (`app/api/proxy`)**: Handles external API requests on the server side, acting as a proxy between the frontend and external services.
+- **Search Function (`lib/api/search`)**: Provides an interface for the frontend to perform search operations, abstracting the details of API calls and response handling.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+It currently uses the test api for the score.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Data Flow
 
-## Deploy on Vercel
+- **Search Term:** The user enters a query in the search box, which sends the term to the search layout.
+- **Filter:** When a facet is selected, the facet layout updates and communicates the selected filters to the search layout.
+- **Search Result:** The search layout processes the search term and filters, then passes the results to the result layout for display.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The search layout serves as the central hub, handling API requests and ensuring that both the facet layout and result layout receive updated data in response to user actions.
