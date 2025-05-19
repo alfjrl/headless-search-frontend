@@ -1,4 +1,4 @@
-This project is a research prototype using Next.js to implement a headless search API for the Digital Collections at UMD Libraries.
+This project is a research prototype using Next.js to implement a frontend for the search API for the Digital Collections at UMD Libraries.
 
 It leverages [Tailwind CSS](https://tailwindcss.com/) for styling and [shadcn/ui](https://ui.shadcn.com/) for UI components.
 
@@ -14,17 +14,9 @@ To start the development server, run one of the following commands:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Then open [http://localhost:3000](http://localhost:3000) in your browser.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a modern font family from Vercel.
 
 ## Project Structure
 
