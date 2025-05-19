@@ -1,22 +1,15 @@
 "use client";
 
-import { useState } from "react";
-
 // umdlib
 import Facet from "@/components/umdlib/Facet";
 
-function FaccetLayout({ facets, onFilterAppied }) {
-  const [activeValues, setActiveValues] = useState({});
-
+function FaccetLayout({ facets, activeValues, onFilterAppied }) {
   const handleFacetChange = (facetKey, value) => {
-    setActiveValues((prevValues) => {
-      const newValues = {
-        ...prevValues,
-        [facetKey]: value,
-      };
-      onFilterAppied(newValues);
-      return newValues;
-    });
+    const newValues = {
+      ...activeValues,
+      [facetKey]: value,
+    };
+    onFilterAppied(newValues);
   };
 
   // If no facets or empty array, show a message

@@ -25,6 +25,7 @@ function SearchLayout() {
   // render results
   const [loading, setLoading] = useState(false);
   const [fetchedData, setFetchedData] = useState(null);
+  const [facetValues, setFacetValues] = useState({});
 
   // render status
   const isFirstRender = useRef(true);
@@ -74,7 +75,11 @@ function SearchLayout() {
                 <div>
                   <FaccetLayout
                     facets={fetchedData?.facets}
-                    onFilterAppied={setActiveFilter}
+                    activeValues={facetValues}
+                    onFilterAppied={(newValues) => {
+                      setFacetValues(newValues);
+                      setActiveFilter(newValues);
+                    }}
                   />
                 </div>
               )}
