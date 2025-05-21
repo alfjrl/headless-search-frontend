@@ -1,4 +1,3 @@
-import SearchArea from "@/components/umdlib/app-search";
 import SearchLayout from "@/components/layout/SearchLayout";
 
 export default function Home() {
